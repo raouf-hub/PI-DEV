@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Client;
+use App\Entity\Contrat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Client>
+ * @extends ServiceEntityRepository<Contrat>
  *
- * @method Client|null find($id, $lockMode = null, $lockVersion = null)
- * @method Client|null findOneBy(array $criteria, array $orderBy = null)
- * @method Client[]    findAll()
- * @method Client[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Contrat|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Contrat|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Contrat[]    findAll()
+ * @method Contrat[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClientRepository extends ServiceEntityRepository
+class ContratRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Client::class);
+        parent::__construct($registry, Contrat::class);
     }
 
-    public function save(Client $entity, bool $flush = false): void
+    public function save(Contrat $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ClientRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Client $entity, bool $flush = false): void
+    public function remove(Contrat $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ClientRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Client[] Returns an array of Client objects
+//     * @return Contrat[] Returns an array of Contrat objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ClientRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Client
+//    public function findOneBySomeField($value): ?Contrat
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
@@ -63,4 +63,8 @@ class ClientRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findContratById(int $id): ?Contrat
+{
+    return $this->findOneBy(['id'=>$id]);
+}
 }
