@@ -1,0 +1,50 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Contrat{% endblock %}
+
+{% block body %}
+<div class="container" style="width:900px;margin-top:80px;">
+    <h1>Contrat</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_deb</th>
+                <th>Date_fin</th>
+                <th>Type_de_contrat</th>
+                <th>Image</th>
+                <th >actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrat in contrats %}
+            <tr>
+                <td>{{ contrat.id }}</td>
+                <td>{{ contrat.dateDeb ? contrat.dateDeb|date('Y-m-d') : '' }}</td>
+                <td>{{ contrat.dateFin ? contrat.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ contrat.typeDeContrat }}</td>
+                                                <td><img width="70" src="{{asset('uploads/'~ contrat.image)}}" ></td>
+
+                <td>
+                    <a href="{{ path('app_contrat_show', {'id': contrat.id}) }}">show</a>
+                    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+                </td>
+                                <td>     <a href="{{ path('app_contrat_pdf',{'id':contrat.id}) }}">PDF</a></td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_new') }}">Create new</a>
+       
+
+<div >
+
+{% endblock %}

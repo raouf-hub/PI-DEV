@@ -1,0 +1,121 @@
+
+
+{% block body %}
+{# <div class="container" style="width:900px;margin-top:80px;">#}
+<style>
+		/* table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+			border: 1px solid #ddd;
+			font-size: 16px;
+		} */
+		/* th, td {
+			text-align: left;
+			padding: 12px;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+						width: 100%;
+
+			background-color: #f2f2f2;
+		}
+		tr:hover {
+						width: 100%;
+
+			background-color: #white;
+		} */
+        body {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+		}
+		.attestation {
+			margin: 0 auto;
+			padding: 20px;
+			border: 2px solid #000;
+			max-width: 600px;
+		}
+		.attestation h1 {
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.attestation p {
+			text-align: justify;
+			margin-bottom: 10px;
+		}
+		.attestation p.contract-id {
+			text-align: center;
+			font-weight: bold;
+			font-size: 18px;
+			margin-bottom: 30px;
+		}
+		footer {
+			text-align: right;
+			font-style: italic;
+			margin-top: 30px;
+		}
+	</style>
+
+    {# <h1 aligne="center">attestation d'assurance</h1>  #}
+ <body>
+<center border="0">
+<div  style="background-color:white;"class="attestation">
+    	<h1 style="color:black;"> attestation d'assurance</h1>
+
+<p style="color:black;" class="contract-id">Numero contrat :"{{ contrat.id }}"</p></center>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+        
+
+
+            <tr>
+                <th   >Date_deb</th>
+                <th   >Date_fin</th>
+                <th>Type_de_contrat</th>
+                <th>Matricule </th>
+                 <th>Nombre de places </th>
+                <th>Puissance </th>
+                 <th>Energie </th>
+              <th>email</th>
+                {# <th>Image</th>
+                <th>actions</th> #}
+            </tr>
+        </thead>
+        <tbody>
+       
+            <tr>
+                <td>{{ contrat.dateDeb ? contrat.dateDeb|date('Y-m-d') : '' }}</td>
+                <td>{{ contrat.dateFin ? contrat.dateFin|date('Y-m-d') : '' }}</td>
+                 <td>{{ contrat.typedecontrat }}</td> 
+
+                <td>{{ contrat.matricule.matricule }}</td>
+                 <td>{{ contrat.matricule.Nombredeplaces }}</td> 
+                <td>{{ contrat.matricule.Puissance }}</td>
+                <td>{{ contrat.matricule.Energie }}</td>
+				<td>{{ contrat.client.email }}</td>
+                </tr>
+                         {# <td><img width="70" src="{{asset('uploads/'~ contrat.image)}}" ></td>
+
+                <td>
+                    <a href="{{ path('app_contrat_show', {'id': contrat.id}) }}">show</a>
+                    <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+                </td>
+
+            </tr>
+        {% else %} #}
+            
+            
+      
+        </tbody>
+    </table>
+</div>
+                       		<footer> Signature :</footer>
+
+</div>
+<body>
+{% endblock %}

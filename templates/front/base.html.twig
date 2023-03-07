@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Alstar Bootstrap Template - Index</title>
+  <title>ALFA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,7 +44,7 @@
     <div class="container d-flex align-items-center justify-content-between ">
 
       <div class="logo">
-        <h1><a href="index.html">Alstar</a></h1>
+        <h1><a href="index.html">ALFA</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -52,25 +52,24 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          {# <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li> #}
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">drop down</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>test
+                  <li><a href="#">test2</a></li>
+         
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">test test </a></li>
+              <li><a href="#">test test</a></li>
+           
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -80,9 +79,7 @@
 
     </div>
   </header><!-- End Header -->
-{% block body %}
-     <!-- ======= Hero Section ======= -->
-  <section id="hero">
+   <section id="hero">
     <div class="hero-container">
       <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
@@ -94,14 +91,70 @@
           <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Alstar</span></h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Read More</a>
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>ALFA</span></h2>
+                <p class="animate__animated animate__fadeInUp">assurance alfa toujours avec vous.</p>
+                {# <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Read More</a> #}
               </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">ALFA</h2>
+                <p class="animate__animated animate__fadeInUp">.pour ajouter une autre voiture à votre collection</p>
+                <a href="{{ path('app_voiture_new_front') }}" class="btn-get-started scrollto animate__animated animate__fadeInUp">ajouter conttrat</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">ALFA</h2>
+                <p class="animate__animated animate__fadeInUp">pour ajouter un nouveau contrat</p>
+                <a href="{{ path('app_contrat_new_front') }}" class="btn-get-started scrollto animate__animated animate__fadeInUp">ajouter contrat</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-double-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-double-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+{% block body %}
+     <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          {# <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Alstar</span></h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Read More</a>
+              </div>
+            </div>
+          </div> #}
+
+          {# <!-- Slide 2 -->
           <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg);">
             <div class="carousel-container">
               <div class="carousel-content">
@@ -121,7 +174,7 @@
                 <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Read More</a>
               </div>
             </div>
-          </div>
+          </div> #}
 
         </div>
 
@@ -148,13 +201,13 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>Alstar</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+              <h3>Alfa</h3>
+              {# <p class="pb-3"><em>.</em></p>
+              <p> #}
+                ghazela <br>
+                2500 rue ff<br><br>
+                <strong>Phone:</strong> +216 90110526<br>
+                <strong>Email:</strong> alfa@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -168,26 +221,24 @@
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
-            <ul>
+            {# <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+            </ul> #}
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">assurance voiture</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">remourqage voitures</a></li>
+
             </ul>
           </div>
-
+{# 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
@@ -195,13 +246,13 @@
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
 
-          </div>
+          </div> #}
 
         </div>
       </div>
     </div>
 
-    <div class="container">
+    {# <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Alstar</span></strong>. All Rights Reserved
       </div>
@@ -212,7 +263,7 @@
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/alstar-free-parallax-bootstrap-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
-    </div>
+    </div> #}
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

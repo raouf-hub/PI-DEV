@@ -30,10 +30,13 @@ a:hover {
 
 h1,
 h2,
-h3,
+h3{
+  color:rgba(1, 41, 112, 0.6)
+}
 h4,
 h5,
 h6 {
+ 
   font-family: "Nunito", sans-serif;
 }
 
