@@ -1,4 +1,4 @@
-{% extends 'back/base.html.twig' %}
+{% extends 'front/base.html.twig' %}
 
 {% block title %}New Contrat{% endblock %}
 
@@ -7,8 +7,7 @@
     <center>
     {{ include('contrat/_form.html.twig') }}
 
-    <a href="{{ path('app_contrat_index') }}">back to list</a>
+    {# <a href="{{ path('app_contrat_index') }}">back to list</a> #}
     </center>
 
 {% endblock %}
-

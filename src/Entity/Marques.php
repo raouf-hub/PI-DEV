@@ -20,12 +20,12 @@ class Marques
     #[Assert\NotBlank]
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'name', targetEntity: Voiture::class)]
-    private Collection $voitures;
+    // #[ORM\OneToMany(mappedBy: 'name', targetEntity: Voiture::class)]
+    // private Collection $voitures;
 
     public function __construct()
     {
-        $this->voitures = new ArrayCollection();
+        // $this->voitures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -45,33 +45,33 @@ class Marques
         return $this;
     }
 
-    /**
-     * @return Collection<int, Voiture>
-     */
-    public function getVoitures(): Collection
-    {
-        return $this->voitures;
-    }
+    // /**
+    //  * @return Collection<int, Voiture>
+    //  */
+    // public function getVoitures(): Collection
+    // {
+    //     return $this->voitures;
+    // }
 
-    public function addVoiture(Voiture $voiture): self
-    {
-        if (!$this->voitures->contains($voiture)) {
-            $this->voitures->add($voiture);
-            $voiture->setName($this);
-        }
+    // public function addVoiture(Voiture $voiture): self
+    // {
+    //     if (!$this->voitures->contains($voiture)) {
+    //         $this->voitures->add($voiture);
+    //         $voiture->setName($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeVoiture(Voiture $voiture): self
-    {
-        if ($this->voitures->removeElement($voiture)) {
-            // set the owning side to null (unless already changed)
-            if ($voiture->getName() === $this) {
-                $voiture->setName(null);
-            }
-        }
+    // public function removeVoiture(Voiture $voiture): self
+    // {
+    //     if ($this->voitures->removeElement($voiture)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($voiture->getName() === $this) {
+    //             $voiture->setName(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 class ContratType extends AbstractType
@@ -32,28 +33,34 @@ class ContratType extends AbstractType
                 ],
                 'mapped'=>false,
             ])
-            ->add('type_de_contrat'
-            ,TextType::class, [
+            // ->add('type_de_contrat'
+            // ,TextType::class, [
     
-                'constraints' => [
-                    new NotBlank(),
-                    new Regex([
-                        'pattern'=>'/^[a-zA-Z0-9 ]+$/',
-                        'message'=>'le lieux doit contenir que des nombres et caracteres'
+            //     'constraints' => [
+            //         new NotBlank(),
+            //         new Regex([
+            //             'pattern'=>'/^[a-zA-Z0-9 ]+$/',
+            //             'message'=>'le lieux doit contenir que des nombres et caracteres'
                     
-                ]),
+            //     ]),
             
-                ]
-                ])
-                // ->add('type_de_contrat',ChoiceType::class, [
-                //     'choices'  => [
-                //         'assurance au tiers' => 'assurance au tiers',
-                //         'assurance au tiers plus' => 'assurance au tiers plus',
-                //         'assurance tous risques' => 'assurance tous risques',
-                //         'assurance auto au kilomètre' => 'assurance auto au kilomètre',
+            //     ]
+               // ])
+                ->add('type_de_contrat',ChoiceType::class, [
+                    'choices'  => [
+                        'assurance au tiers' => 'assurance au tiers',
+                        'assurance au tiers plus' => 'assurance au tiers plus',
+                        'assurance tous risques' => 'assurance tous risques',
+                        'assurance auto au kilomètre' => 'assurance auto au kilomètre',
 
-                //     ],
-                //     'mapped'=>false,
+                    ],
+                    //'mapped'=>false,
+                ])
+                
+                
+                // ->add('public', CheckboxType::class, [
+                //     'label'    => 'Show this entry publicly?',
+                //     'required' => false,
                 // ])
             ->add('matricule',EntityType::class, [
                 // looks for choices from this entity

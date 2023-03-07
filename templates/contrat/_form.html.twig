@@ -4,8 +4,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Forms</li>
-          <li class="breadcrumb-item active">Layouts</li>
+          
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -18,6 +17,9 @@
               <h5 class="card-title">Add contrat </h5>
               {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
     {{ form_widget(form) }}
+<input type="email" name="email" placeholder="Enter Email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
    </div>

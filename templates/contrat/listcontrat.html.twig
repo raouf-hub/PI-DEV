@@ -3,24 +3,28 @@
 {% block body %}
 {# <div class="container" style="width:900px;margin-top:80px;">#}
 <style>
-		table {
+		/* table {
 			border-collapse: collapse;
 			width: 100%;
 			margin-bottom: 20px;
 			border: 1px solid #ddd;
 			font-size: 16px;
-		}
-		th, td {
+		} */
+		/* th, td {
 			text-align: left;
 			padding: 12px;
 			border-bottom: 1px solid #ddd;
 		}
 		th {
+						width: 100%;
+
 			background-color: #f2f2f2;
 		}
 		tr:hover {
-			background-color: #f5f5f5;
-		}
+						width: 100%;
+
+			background-color: #white;
+		} */
         body {
 			font-family: Arial, sans-serif;
 			font-size: 14px;
@@ -48,7 +52,7 @@
 			font-size: 18px;
 			margin-bottom: 30px;
 		}
-		.attestation footer {
+		footer {
 			text-align: right;
 			font-style: italic;
 			margin-top: 30px;
@@ -57,11 +61,11 @@
 
     {# <h1 aligne="center">attestation d'assurance</h1>  #}
  <body>
-<center>
-<div  style="background-color:grey;"class="attestation">
-    	<h1 style="color:white;">Exemple d'attestation</h1>
+<center border="0">
+<div  style="background-color:white;"class="attestation">
+    	<h1 style="color:black;"> attestation d'assurance</h1>
 
-<p style="color:white;" class="contract-id">Numero contrat :"{{ contrat.id }}"</p></center>
+<p style="color:black;" class="contract-id">Numero contrat :"{{ contrat.id }}"</p></center>
 
     <table class="table table-hover">
         <thead>
@@ -70,7 +74,6 @@
 
 
             <tr>
-                <th  >Id</th>
                 <th   >Date_deb</th>
                 <th   >Date_fin</th>
                 <th>Type_de_contrat</th>
@@ -78,7 +81,7 @@
                  <th>Nombre de places </th>
                 <th>Puissance </th>
                  <th>Energie </th>
-              
+              <th>email</th>
                 {# <th>Image</th>
                 <th>actions</th> #}
             </tr>
@@ -86,7 +89,6 @@
         <tbody>
        
             <tr>
-                <td>{{ contrat.id }}</td>
                 <td>{{ contrat.dateDeb ? contrat.dateDeb|date('Y-m-d') : '' }}</td>
                 <td>{{ contrat.dateFin ? contrat.dateFin|date('Y-m-d') : '' }}</td>
                  <td>{{ contrat.typedecontrat }}</td> 
@@ -95,7 +97,7 @@
                  <td>{{ contrat.matricule.Nombredeplaces }}</td> 
                 <td>{{ contrat.matricule.Puissance }}</td>
                 <td>{{ contrat.matricule.Energie }}</td>
-
+				<td>{{ contrat.client.email }}</td>
                 </tr>
                          {# <td><img width="70" src="{{asset('uploads/'~ contrat.image)}}" ></td>
 
@@ -112,7 +114,7 @@
         </tbody>
     </table>
 </div>
-                       		<footer>Signature :</footer>
+                       		<footer> Signature :</footer>
 
 </div>
 <body>

@@ -1,0 +1,18 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}New Voiture{% endblock %}
+
+{% block body %}
+    <center>
+        <section id="contact" class="contact section-bg">
+      <div class="container">
+    <h1>Create new Voiture</h1>
+
+    {{ include('voiture/_form.html.twig') }}
+
+    {# <a href="{{ path('app_voiture_index') }}">back to list</a> #}
+    </section>
+          </div>
+
+    </center>
+{% endblock %}

@@ -67,4 +67,5 @@ public function findContratById(int $id): ?Contrat
 {
     return $this->findOneBy(['id'=>$id]);
 }
+
 }
