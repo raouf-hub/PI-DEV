@@ -1,0 +1,50 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}Sinstre{% endblock %}
+
+{% block body %}
+    <h1>Sinstre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sinstre.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ sinstre.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ sinstre.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ sinstre.email }}</td>
+            </tr>
+            <tr>
+                 <th>Date</th>
+                <td>{{ sinstre.date }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ sinstre.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Typeduvehicule</th>
+                <td>{{ sinstre.typeduvehicule }}</td>
+            </tr>
+            <tr>
+                <th>Fichieraccident</th>
+                <td>{{ sinstre.fichieraccident }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sinstre_index') }}"><button type="button" class="btn btn-outline-primary">back to list</button></a>
+
+    <a href="{{ path('app_sinstre_edit', {'id': sinstre.id}) }}"><button type="button" class="btn btn-outline-primary">edit</button></a>
+
+    {{ include('sinstre/_delete_form.html.twig') }}
+{% endblock %}

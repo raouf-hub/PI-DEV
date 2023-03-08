@@ -10,6 +10,7 @@ use App\Repository\VoitureRepository;
 use App\Service\SendMailService;
 use DateTime;
 use DateTimeImmutable;
+use Doctrine\Common\Lexer\Token;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,18 +20,21 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Flex\Options as FlexOptions;
-
+use Stripe\Stripe;
 #[Route('/contrat')]
 class ContratController extends AbstractController
 {
     #[Route('/', name: 'app_contrat_index', methods: ['GET'])]
     public function index(ContratRepository $contratRepository): Response
     {
+        
         return $this->render('contrat/index.html.twig', [
             'contrats' => $contratRepository->findAll(),
         ]);
+
     }
     
     #[Route('/frontContrat', name: 'app_contrat_indexfront', methods: ['GET'])]
@@ -149,8 +153,6 @@ $image = $form->get('image')->getData();
             
             
 
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
             if ($image) {
                 $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
@@ -167,8 +169,6 @@ $image = $form->get('image')->getData();
                     // ... handle exception if something happens during file upload
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
                 $contrat->setimage($newFilename);
             }
             $contratRepository->save($contrat, true);
@@ -298,7 +298,81 @@ $image = $form->get('image')->getData();
             'contrat' => $contrat,
         ]);
     }
+///////////////////////////////////////////////////////////paiment//////////////////
+ function initStripe(): Token
+  {
+  Stripe::setApiKey('pk_test_51MiGlsDOK8juJEL07m1yYciuBVmCbL3QNDYk9JyeuOnem7pgy19pBtuIuuisFeaDXBUPLEctx621jqJV2S58szWX00RXvaGDtk');
+  // Créez un jeton de carte test
+  $cardToken = Token::create([
+  'card' => [
+  'number' => '4242424242424242',
+  'exp_month' => 1,
+  'exp_year' => date('Y') + 1,
+  'cvc' => '123',
+  ],
+  ]);
 
+ return $cardToken;
+}
+
+ #[Route('/payment', name:'app_process_payment', methods:['POST', 'GET'])]
+ function processPayment(Request $request, contratRepository $ContratRepository, SessionInterface $session,ManagerRegistry $mr): Response
+  {
+  $user=$this->getUser();
+  // Initialiser la bibliothèque Stripe avec la clé d'API et le jeton de carte test
+  $stripeToken = $this->initStripe();
+
+  $ContratData = new Contrat();
+  $ContratData = $session->get('abonnementData');
+  // dd($abonnementData);
+  // $amount=$abonnementData->getOffre()->getPrix();
+
+  // Récupérer les détails du paiement à partir du formulaire
+  $amount = $request->request->get('amount');
+ 
+  $cardTokenFromForm = $request->request->get('card_token');
+  $email = $user->getUsername();
+  $metadata = [
+  'email' => $email,
+  ];
+ 
+
+ $mpayement = $ContratData->getMPayement();
+ $dateD = $ContratData->getDateDeb();
+ $ContratData->setEtatab(true);
+  // Créer la charge Stripe
+  try {
+  $charge = charge::create([
+  'amount' => $amount * 100, // le montant doit être en centimes
+  'currency' => 'eur',
+  'source' => $stripeToken->id, // utilisez le jeton de carte
+  'metadata' => $metadata,
+ ]);
+
+//  // Paiement réussi
+
+ 
+  $id=$ContratData->getId();
+ $ContratRepository->changeEtat(true,$id);
+  // $response = new JsonResponse(['status' => 'success']);
+  $this->addFlash('success','payment affected');
+  return $this->redirectToRoute('app_profil');
+
+  } catch (\Exception$e) {
+  // Erreur de paiement
+  // $response = new JsonResponse(['status' => 'error', 'message' => $e->getMessage()]);
+  }
+
+  // Afficher l'alerte de paiement réussi ou d'erreur
+  return $this->render('front/payment.html.twig', [
+  // 'paymentResponse' => $response->getContent(),
+  'cardToken' => $cardTokenFromForm,
+  'prix'=>$ContratData->getOffre()->getPrix()
+  ]);
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    
     #[Route('/{id}/edit', name: 'app_contrat_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Contrat $contrat, ContratRepository $contratRepository): Response
     {

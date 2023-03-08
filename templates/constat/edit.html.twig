@@ -1,0 +1,13 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Edit Constat{% endblock %}
+
+{% block body %}
+    <h1>Edit Constat</h1>
+
+    {{ include('constat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_constat_index') }}"><button type="button" class="btn btn-outline-primary">back to list</button></a>
+
+    {{ include('constat/_delete_form.html.twig') }}
+{% endblock %}

@@ -32,6 +32,9 @@ class Contrat
     #[ORM\ManyToOne]
     private ?User $client = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $paymentLink = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Contrat
     public function setClient(?User $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getPaymentLink(): ?string
+    {
+        return $this->paymentLink;
+    }
+
+    public function setPaymentLink(string $paymentLink): self
+    {
+        $this->paymentLink = $paymentLink;
 
         return $this;
     }

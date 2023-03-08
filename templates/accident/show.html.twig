@@ -1,0 +1,38 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Accident{% endblock %}
+
+{% block body %}
+    <h1>Accident</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ accident.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateaccident</th>
+                <td>{{ accident.dateaccident ? accident.dateaccident|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ accident.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ accident.type }}</td>
+            </tr>
+            <tr>
+                <th>Lieux</th>
+                <td>{{ accident.lieux }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_accident_index') }}">back to list</a>
+
+    <a href="{{ path('app_accident_edit', {'id': accident.id}) }}">edit</a>
+
+    {{ include('accident/_delete_form.html.twig') }}
+{% endblock %}

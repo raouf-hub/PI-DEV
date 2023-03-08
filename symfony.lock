@@ -1,4 +1,7 @@
 {
+    "cmen/google-charts-bundle": {
+        "version": "5.0.1"
+    },
     "doctrine/annotations": {
         "version": "1.14",
         "recipe": {
@@ -37,6 +40,9 @@
             "./config/packages/doctrine_migrations.yaml",
             "./migrations/.gitignore"
         ]
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.9.0"
     },
     "phpunit/phpunit": {
         "version": "9.6",
@@ -281,5 +287,14 @@
     },
     "twig/extra-bundle": {
         "version": "v3.5.1"
+    },
+    "vich/uploader-bundle": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.13",
+            "ref": "1b3064c2f6b255c2bc2f56461aaeb76b11e07e36"
+        }
     }
 }

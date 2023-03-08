@@ -1,0 +1,11 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}New Accident{% endblock %}
+
+{% block body %}
+    <h1>Create new Accident</h1>
+
+    {{ include('accident/_form.html.twig') }}
+
+    <a href="{{ path('app_accident_index') }}">back to list</a>
+{% endblock %}

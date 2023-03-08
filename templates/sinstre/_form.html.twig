@@ -1,0 +1,108 @@
+
+
+{{ form_start(form , {'attr':{'novalidate':'novalidate'}}) }}
+ 
+<div class="col-md-auto">
+ <div class="card mb-3">
+                                <div class="card-body">
+                            
+                                    <div class="row">
+                                        <div class="col-sm-3 w3-panel w3-border" >
+                                            <h6 class="mb-0">Firstname</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.firstname) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.firstname) }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-auto">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">lastname</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.lastname) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.lastname) }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.email) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.email) }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">telephone </h6>
+                                        </div>
+                                        <div  class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.date) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.date) }}
+                                            
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                   
+                                   
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Adresse</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.Adresse) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.Adresse) }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Marquevehicule</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.typeduvehicule) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.typeduvehicule) }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0"> Description  </h6>
+                                        </div>
+                                        <div  class="col-sm-9 text-secondary">
+                                            {{ form_widget(form.fichieraccident) }}
+                                        </div>
+                                        <div style="color: red">
+                                            {{ form_errors(form.fichieraccident) }}
+                                            
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    
+                                    
+
+               
+{{ form_widget(form) }}
+  <button class="btn"style="color: blue">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

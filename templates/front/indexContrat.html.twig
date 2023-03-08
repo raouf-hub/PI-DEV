@@ -29,6 +29,8 @@
                 <td>
                     <a href="{{ path('app_contrat_show', {'id': contrat.id}) }}">show</a>
                     <a href="{{ path('app_contrat_edit', {'id': contrat.id}) }}">edit</a>
+                                        <a href="{{contrat.paymentLink}}">edit</a>
+
                 </td>
                                 <td>     <a href="{{ path('app_contrat_pdf',{'id':contrat.id}) }}">PDF</a></td>
 
