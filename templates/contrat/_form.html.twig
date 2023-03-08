@@ -16,6 +16,7 @@
             <div class="card-body">
               <h5 class="card-title">Add contrat </h5>
               {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+              {{ form_row(form.paymentLink, {'attr': {'class': 'form-control mb-3', 'placeholder': 'enter the payment link'}}) }}
     {{ form_widget(form) }}
 <input type="email" name="email" placeholder="Enter Email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 

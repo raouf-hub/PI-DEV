@@ -368,12 +368,34 @@
               <i class="bi bi-circle"></i><span>ajouter voiture</span>
             </a>
           </li>
+          <li class="nav-item">
+				<a class="nav-link " href="{{ path('app_service_index') }}">
+					<i class="bi bi-grid"></i>
+					<span>Services</span>
+				</a>
+			</li>
+      	<li class="nav-item">
+				<a class="nav-link " href="{{ path('admin_remorquage_index') }}">
+					<i class="bi bi-grid"></i>
+					<span>Remorquages</span>
+				</a>
+			</li>
+
           <li>
             <a href="{{ path('app_voiture_index') }}">
               <i class="bi bi-circle"></i><span>afficher voitures</span>
             </a>
           </li>
-         
+         <li>
+            <a href="{{ path('app_voiture_index') }}">
+              <i class="bi bi-circle"></i><span>afficher voitures</span>
+            </a>
+          </li>
+           <li>
+            <a href="{{ path('') }}">
+              <i class="bi bi-circle"></i><span>afficher constat</span>
+            </a>
+          </li>
        
           
         </ul>
@@ -481,7 +503,7 @@
 
   </aside><!-- End Sidebar-->
 <!-- Budget Report -->
-          <div class="card">
+          {# <div class="card">
             <div class="filter">
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -552,7 +574,7 @@
               </script>
 
             </div>
-          </div><!-- End Budget Report -->
+          </div><!-- End Budget Report --> #}
 
 {% block body %}
     

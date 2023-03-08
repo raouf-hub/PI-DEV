@@ -1,0 +1,71 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Remorquage index
+{% endblock %}
+
+{% block stylesheets %}
+
+	<link rel="stylesheet" href="{{ asset('back/css/style.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+
+	{% for message in app.flashes('notification') %}
+
+		<div class="alert alert-info alert-dismissible fade show">
+
+			{{ message }}
+
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+
+		</div>
+
+	{% endfor %}
+	<div id="div_chart"></div>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		{{ gc_draw(piechart, "div_chart") }}</script>
+	<h1>Remorquage index</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Prenom</th>
+				<th>Email</th>
+				<th>NumTel</th>
+				<th>Service</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for remorquage in remorquages %}
+				<tr>
+					<td>{{ remorquage.name }}</td>
+					<td>{{ remorquage.prenom }}</td>
+					<td>{{ remorquage.email }}</td>
+					<td>{{ remorquage.numTel }}</td>
+					<td>{{ remorquage.service.libelleService }}</td>
+					<td>
+						<a href="{{ path('admin_remorquage_show', {'id': remorquage.id}) }}">show</a>
+						<a href="{{ path('admin_remorquage_edit', {'id': remorquage.id}) }}">edit</a>
+						<form method="post" action="{{ path('admin_remorquage_delete', {'id': remorquage.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ remorquage.id) }}">
+							<button class="btn">delete</button>
+						</form>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{ path('admin_remorquage_new') }}">Create new</a>
+	<h6> <a href="{{ path('admin_remorquage_download') }}">pdf</a>  </h6>
+{{ knp_pagination_render(remorquages) }}
+{% endblock %}

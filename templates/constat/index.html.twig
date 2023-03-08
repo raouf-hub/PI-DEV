@@ -1,0 +1,79 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Constat index{% endblock %}
+
+{% block body %}
+
+
+<body style="margin-left :320px; margin-right: 30px; margin-top: 80px;">
+		
+
+
+			{% for message in app.flashes('notification') %}
+
+				<div class="alert alert-info alert-dismissible fade show">
+
+					{{ message }}
+
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+
+			{% endfor %}
+            
+	
+	</body>
+
+    
+    <div class="container" style="width:1000px;margin-top:100px;">
+       <center>
+      <h1> Constat </h1>
+      </center>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TypeDAccident</th>
+                <th>LieuDAccident</th>
+                <th>VehiculeA</th>
+                <th>VehiculeB</th>
+                <th>ImmatriculeA</th>
+                <th>ImmatriculeB</th>
+                <th>DateDAccident</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for constat in constats %}
+            <tr>
+                <td>{{ constat.id }}</td>
+                <td>{{ constat.TypeDAccident }}</td>
+                <td>{{ constat.LieuDAccident }}</td>
+                <td>{{ constat.vehiculeA }}</td>
+                <td>{{ constat.VehiculeB }}</td>
+                <td>{{ constat.immatriculeA }}</td>
+                <td>{{ constat.immatriculeB }}</td>
+                <td>{{ constat.DateDAccident ? constat.DateDAccident|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_constat_show', {'id': constat.id}) }}"><button type="button" class="btn btn-outline-primary">show</button></a>
+                    <a href="{{ path('admin_constat_edit', {'id': constat.id}) }}"><button type="button" class="btn btn-outline-primary">edit</button></a>
+                     
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_constat_new') }}"><button type="button" class="btn btn-outline-primary">Create new</button></a>
+     
+    </div >
+     {{ knp_pagination_render(constats, 'constat/pagination.html.twig') }}
+
+
+{% endblock %}

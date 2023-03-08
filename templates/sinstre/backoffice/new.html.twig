@@ -1,0 +1,15 @@
+{% extends 'back/backbase.html.twig' %}
+
+{% block title %}New Sinstre{% endblock %}
+
+{% block body %}
+ <div class="container" style="width:900px;margin-top:80px;">
+<center>
+    <h1>Create new declaration </h1>
+
+    {{ include('sinstre/backoffice/_form.html.twig') }}
+
+    <a href="{{ path('app_sinstre_indexback') }}"><button type="button" class="btn btn-outline-primary">back to list</button></a>
+    </center>
+    </div>
+{% endblock %}

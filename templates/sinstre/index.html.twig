@@ -1,0 +1,98 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Declarer sinstre {% endblock %}
+
+{% block body %}
+<div class="container" style="width:1400px;margin-top:80px;">
+<body style="margin-left :320px; margin-right: 30px; margin-top: 80px;">
+		
+
+
+			{% for message in app.flashes('notification') %}
+
+				<div class="alert alert-info alert-dismissible fade show">
+
+					{{ message }}
+
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+
+			{% endfor %}
+	
+	</body>
+    <body>
+        <ul>
+       {% for sinstre in sinstres %}
+            <li>
+              {{ sinstre.id }}
+                {{ sinstre.firstname }}
+                {{ sinstre.lastname }}
+                {{ sinstre.email }}
+                {{sinstre.date }}
+                {{ sinstre.Adresse }}
+                {{ sinstre.typeduvehicule }}
+                {{ sinstre.fichieraccident }}
+            </li>
+        {% endfor %}
+        </ul>
+        
+        <div class="navigation">
+           
+        </div>
+    </body>
+
+   <center>
+    <h1>declarer sinstre </h1>
+    </center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>type d'accident </th>
+                <th>Adresse</th>
+                <th>Marquevehicule</th>
+                <th>Description</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for sinstre in sinstres %}
+            <tr>
+                <td>{{ sinstre.id }}</td>
+                <td>{{ sinstre.firstname }}</td>
+                <td>{{ sinstre.lastname }}</td>
+                <td>{{ sinstre.email }}</td>
+                <td>{{sinstre.date }}</td>
+                <td>{{ sinstre.Adresse }}</td>
+                <td>{{ sinstre.typeduvehicule }}</td>
+                <td>{{ sinstre.fichieraccident }}</td>
+                
+                <td>
+                    <a href="{{ path('app_sinstre_show', {'id': sinstre.id}) }}"><button type="button" class="btn btn-outline-primary">show</button></a>
+                    <a href="{{ path('app_sinstre_edit', {'id': sinstre.id}) }}"><button type="button" class="btn btn-outline-primary">edit</button></a>
+                    <a href="{{ path('app_sinstre_download') }}"><button type="button" class="btn btn-outline-primary">PDF</button></a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sinstre_new') }}"><button type="button" class="btn btn-outline-primary">Create new</button></a>
+    
+    </div>
+     {{ knp_pagination_render(sinstres, 'sinstre/pagination.html.twig') }}
+   
+{% endblock %}

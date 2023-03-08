@@ -1,0 +1,93 @@
+	<h1>Demander un remorquage</h1>
+    <br>
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<table class="table table-success table-striped">
+<tr>
+<td>
+{{ form_label(form.name,"Nom de client") }}
+
+</td>
+<td>
+{{ form_widget(form.name) }}
+
+</td>
+<td>
+{{ form_errors(form.name) }}
+
+</td>
+
+
+
+
+</tr>
+
+
+
+<tr>
+<td>
+{{ form_label(form.prenom,"prenom de client") }}
+
+</td>
+<td>
+{{ form_widget(form.prenom) }}
+
+</td>
+<td>
+{{ form_errors(form.prenom) }}
+
+</td>
+</tr>
+
+<tr>
+<td>
+{{ form_label(form.email,"email de client") }}
+
+</td>
+<td>
+{{ form_widget(form.email) }}
+
+</td>
+<td>
+{{ form_errors(form.email) }}
+
+</td>
+</tr>
+<tr>
+<td>
+{{ form_label(form.numTel,"Numero telephone de client") }}
+
+</td>
+<td>
+{{ form_widget(form.numTel) }}
+
+</td>
+<td>
+{{ form_errors(form.numTel) }}
+
+</td>
+</tr>
+
+<tr>
+<td>
+{{ form_label(form.service,"service :") }}
+
+</td>
+<td>
+{{ form_widget(form.service) }}
+
+</td>
+<td>
+{{ form_errors(form.service) }}
+
+</td>
+</tr>
+
+
+</table>
+
+
+
+
+<button class="btn  btn-light ">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -33,6 +33,11 @@ class ContratType extends AbstractType
                 ],
                 'mapped'=>false,
             ])
+            ->add('paymentLink', null, [
+                'constraints' => [
+                   
+                   
+                ],])
             // ->add('type_de_contrat'
             // ,TextType::class, [
     
@@ -46,17 +51,23 @@ class ContratType extends AbstractType
             
             //     ]
                // ])
+            //    $form->handleRequest($request);
+            //    $badWords = $this->filterwords($Commentaire->getContenuCommentairer() . ' ' . $Commentaire->getContenuCommentairer());
+            //    if (strpos($badWords, '**') !== false) {
+            //     $this->addFlash('info', 'Faites attention a ce que vous tapez  ! un peu de respect !!');
+            //    }
                 ->add('type_de_contrat',ChoiceType::class, [
                     'choices'  => [
                         'assurance au tiers' => 'assurance au tiers',
                         'assurance au tiers plus' => 'assurance au tiers plus',
                         'assurance tous risques' => 'assurance tous risques',
-                        'assurance auto au kilomètre' => 'assurance auto au kilomètre',
+                        
+                        // $this->addFlash('info', 'Faites attention a ce que vous tapez  ! un peu de respect !!')
+
 
                     ],
                     //'mapped'=>false,
                 ])
-                
                 
                 // ->add('public', CheckboxType::class, [
                 //     'label'    => 'Show this entry publicly?',

@@ -1,0 +1,24 @@
+<<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Prenom</th>
+				<th>Email</th>
+				<th>NumTel</th>
+				<th>Service</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for remorquage in remorquages %}
+				<tr>
+					<td>{{ remorquage.name }}</td>
+					<td>{{ remorquage.prenom }}</td>
+					<td>{{ remorquage.email }}</td>
+					<td>{{ remorquage.numTel }}</td>
+					<td>{{ remorquage.service.libelleService }}</td>
+					
+				</tr>
+			
+			{% endfor %}
+		</tbody>
+	</table>

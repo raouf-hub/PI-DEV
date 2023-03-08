@@ -1,0 +1,36 @@
+{% extends 'back/backbase.html.twig' %}
+{% block title %}EL Bank - PublicationsRecherche {% endblock %}
+
+{% block body %}
+
+{{ form(recherchenum) }}
+<hr>
+<td>
+    <div style="width: 100%; overflow: auto">
+        <table style="border:1px solid black;border-collapse:collapse; vertical-align:center; ">
+            <tr class="table" style="border:1px solid black;border-collapse:collapse;">
+               <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>type d'accident </th>
+                <th>Adresse</th>
+                <th>Marquevehicule</th>
+                <th>Description</th>
+            </tr>
+          <tr  {% for sinstre in sinstres %}>
+                <td>{{ sinstre.id }}</td>
+                <td>{{ sinstre.firstname }}</td>
+                <td>{{ sinstre.lastname }}</td>
+                <td>{{ sinstre.email }}</td>
+                <td>{{sinstre.date }}</td>
+                <td>{{ sinstre.Adresse }}</td>
+                <td>{{ sinstre.typeduvehicule }}</td>
+                <td>{{ sinstre.fichieraccident }}</td>
+    {% endfor %}
+            </tr>
+        </table>
+            
+</td>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}New Remorquage{% endblock %}
+
+{% block body %}
+    <h1>Create new Remorquage</h1>
+
+    {{ include('remorquage/_form.html.twig') }}
+
+    <a href="{{ path('admin_remorquage_index') }}">back to list</a>
+{% endblock %}

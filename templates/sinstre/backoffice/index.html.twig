@@ -1,0 +1,58 @@
+{% extends 'back/backbase.html.twig' %}
+
+{% block title %}Declarer sinstre {% endblock %}
+
+{% block body %}
+<div class="container" style="width:1400px;margin-top:80px;">
+
+   <center>
+    <h1>declarer sinstre </h1>
+    </center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>type d'accident </th>
+                <th>Adresse</th>
+                <th>Marquevehicule</th>
+                <th>Description</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for sinstre in sinstres %}
+            <tr>
+                <td>{{ sinstre.id }}</td>
+                <td>{{ sinstre.firstname }}</td>
+                <td>{{ sinstre.lastname }}</td>
+                <td>{{ sinstre.email }}</td>
+                <td>{{sinstre.date }}</td>
+                <td>{{ sinstre.Adresse }}</td>
+                <td>{{ sinstre.typeduvehicule }}</td>
+                <td>{{ sinstre.fichieraccident }}</td>
+                
+                <td>
+                    <a href="{{ path('app_sinstre_showback', {'id': sinstre.id}) }}"><button type="button" class="btn btn-outline-primary">show</button></a>
+                    <a href="{{ path('app_sinstre_editback', {'id': sinstre.id}) }}"><button type="button" class="btn btn-outline-primary">edit</button></a>
+                    <a href="{{ path('app_sinstre_downloadback') }}"><button type="button" class="btn btn-outline-primary">telecherager les fichier</button></a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sinstre_newback') }}"><button type="button" class="btn btn-outline-primary">Create new</button></a>
+   
+    </div>
+   
+{% endblock %}

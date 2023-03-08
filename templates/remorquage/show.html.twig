@@ -1,0 +1,38 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Remorquage{% endblock %}
+
+{% block body %}
+    <h1>Remorquage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ remorquage.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ remorquage.name }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ remorquage.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ remorquage.email }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ remorquage.numTel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_remorquage_index') }}">back to list</a>
+
+    <a href="{{ path('admin_remorquage_edit', {'id': remorquage.id}) }}">edit</a>
+
+    {{ include('remorquage/_delete_form.html.twig') }}
+{% endblock %}

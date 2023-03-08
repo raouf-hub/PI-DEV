@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+            </tr>
+            <tr>
+                <th>Titreevenement</th>
+                <td>{{ evenement.titreevenement }}</td>
+            </tr>
+            <tr>
+                <th>Imageevenement</th>
+                <td>{{ evenement.imageevenement }}</td>
+            </tr>
+            <tr>
+                <th>Dateevenement</th>
+                <td>{{ evenement.dateevenement ? evenement.dateevenement|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lieuevenement</th>
+                <td>{{ evenement.lieuevenement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement_index') }}">back to list</a>
+
+    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">edit</a>
+
+    {{ include('evenement/_delete_form.html.twig') }}
+{% endblock %}

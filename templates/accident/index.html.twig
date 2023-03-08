@@ -1,0 +1,41 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}Accident index{% endblock %}
+
+{% block body %}
+    <h1>Accident index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateaccident</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Lieux</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for accident in accidents %}
+            <tr>
+                <td>{{ accident.id }}</td>
+                <td>{{ accident.dateaccident ? accident.dateaccident|date('Y-m-d') : '' }}</td>
+                <td>{{ accident.description }}</td>
+                <td>{{ accident.type }}</td>
+                <td>{{ accident.lieux }}</td>
+                <td>
+                    <a href="{{ path('app_accident_show', {'id': accident.id}) }}">show</a>
+                    <a href="{{ path('app_accident_edit', {'id': accident.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_accident_new') }}">Create new</a>
+{% endblock %}
